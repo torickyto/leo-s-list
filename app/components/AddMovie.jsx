@@ -59,11 +59,12 @@ const handleSubmit = (e) => {
   
 return (
     <div className="flex flex-col items-center">
-        <div className="my-4">
+        <div className="my-4"> {/* button to bring up interface to add new movies */}
             <button onClick={() => setShowModal(true)} className=" bg-bitterbrown hover:bg-notactuallybrown text-white font-bold py-2 px-4 rounded">
                 add to the leo list
             </button>
         </div>
+            {/*defines the input boxes for fields in new movie data*/}
         <Modal showModal={showModal} setShowModal={setShowModal}>
         <form className="bg-bitterbrown py-6 px-9 rounded mx-auto max-w-md text-center" onSubmit={handleSubmit}>
         <h1 className="text-xl font-bold mb-4">new leo movie</h1>

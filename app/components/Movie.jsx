@@ -2,7 +2,8 @@ import axios from "axios";
 import Modal from "./Modal";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-
+/*this file allows for the editing and deletion of movie entries
+including the addition/editing/removal of actors, the correction of release years and*/
 const Movie = ({ movie, onDelete }) => {
     const Router = useRouter();
     const [showModal, setShowModal] = useState(false);
@@ -11,7 +12,7 @@ const Movie = ({ movie, onDelete }) => {
         actors: movie.actors
     });
     const [showDeleteModal, setShowDeleteModal] = useState(false);  
-
+// validation for release year variable
     const handleChange = (e) => {
         const { name, value } = e.target;
         if (name === 'releaseYear') {
@@ -20,7 +21,7 @@ const Movie = ({ movie, onDelete }) => {
             setMovieToEdit(prevState => ({ ...prevState, [name]: value }));
         }
     };
-    
+//handles submission of edits to the database
     const handleEditSubmit = (e) => {
         e.preventDefault();
         axios.patch(`/api/movies/${movie.id}`, movieToEdit)
@@ -36,7 +37,7 @@ const Movie = ({ movie, onDelete }) => {
                 Router.refresh();
             });
     };
-
+//allows for deletion of movie entries
     const handleDeleteMovie = (id) => {
         axios.delete(`/api/movies/${id}`)
             .then((res) => {
@@ -50,20 +51,20 @@ const Movie = ({ movie, onDelete }) => {
                 Router.refresh();
             });
     };
-
+//allows for changing of actors for created movies
     const handleActorChange = (index, value) => {
         const newActors = [...movieToEdit.actors];
         newActors[index] = value;
         setMovieToEdit({ ...movieToEdit, actors: newActors });
     };
-    
+//allows adding of new actors to created movies
     const addActor = () => {
         setMovieToEdit(prevState => ({
             ...prevState,
             actors: [...prevState.actors, ""]
         }));
     };
-    
+//allows removal of actors from created movies
     const removeActor = (index) => {
         const newActors = movieToEdit.actors.filter((_, i) => i !== index);
         setMovieToEdit(prevState => ({
@@ -72,7 +73,7 @@ const Movie = ({ movie, onDelete }) => {
         }));
     };
 
-
+//section detailing the interface for the editing of created movies (title, actors, release year)
     return (
         <li className="text-center my-3" key={movie.id}>
             <h1 className="text-2xl font-bold">{movie.title}</h1>
@@ -91,7 +92,8 @@ const Movie = ({ movie, onDelete }) => {
         <h1 className="text-xl font-bold mb-4">Edit</h1>
         <div className="mb-3">
             <label className="block text-white mb-2">Title</label>
-            <input
+            {/*allows editing of movie title*/}
+            <input 
                 type="text"
                 placeholder="Title"
                 name="title"
@@ -130,6 +132,7 @@ const Movie = ({ movie, onDelete }) => {
         <button type="submit" className="bg-milkbrown text-chocobrown px-7 py-1 mt-4">Update</button>
     </form>
 </Modal>
+{/*popup for confirmation of movie entry deletion*/}
             {showDeleteModal && (
     <Modal showModal={showDeleteModal} setShowModal={setShowDeleteModal}>
         <div className=" bg-darkestbrown text-center p-5 rounded">

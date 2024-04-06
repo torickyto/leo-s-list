@@ -34,7 +34,7 @@ const Films = () => {
     console.error("Error fetching movies:", error);
     return <p>Error fetching movies</p>;
   }
-
+//display add movie button+ list of movies w/ message if database contains no movies
   return (
     <Layout> 
       <main className="flex min-h-screen flex-col items-center justify-center">

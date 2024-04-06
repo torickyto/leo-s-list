@@ -1,12 +1,12 @@
 generator client {
   provider = "prisma-client-js"
 }
-
+//using mongodb for database
 datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
-
+//model for movies, includes array of strings for actors
 model Movie {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   title       String

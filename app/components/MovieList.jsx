@@ -1,6 +1,6 @@
 import React from 'react';
 import Movie from './Movie';
-
+//component for formatting and display of movie data
 const MovieList = ({ movie }) => {
     return (
         <ul className="flex flex-col items-center mt-4 gap-4">

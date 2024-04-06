@@ -40,7 +40,7 @@ const HomePage = () => {
       },
     ],
   };
-
+//
   return (
     <Layout>
       <div className="pt-6 flex flex-col items-center">
@@ -61,7 +61,7 @@ const HomePage = () => {
           </Slider>
         </div>
 
-        {/* Button to View Films */}
+        {/* Button to navigate to page displaying database/films */}
         <div className="mt-12">
           <Link legacy legacyBehavior href="/films">
             <a className=" bg-bitterbrown hover:bg-notactuallybrown text-milkbrown text-2xl font-bold py-4 px-8 rounded">
