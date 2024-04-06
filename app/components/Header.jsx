@@ -15,7 +15,7 @@ const Header = () => {
         <li className="text-center flex-1"> {/* flex-1 to make it take up remaining space */}
           <Link legacyBehavior href="/films">
             <a className=" text-milkbrown text-6xl font-semibold" style={{ fontFamily: 'Workbench, sans-serif' }}>
-              <h1 className="inline">Leo's List</h1>
+              <h1 className="inline">Leo&apos;s List</h1>
             </a>
           </Link>
         </li>
