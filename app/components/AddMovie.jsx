@@ -33,6 +33,7 @@ const addActor = () => {
     }
 };
 
+//removes actor
 const removeActor = (index) => {
     const newActors = movieToEdit.actors.filter((_, i) => i !== index);
     setMovieToEdit({ ...movieToEdit, actors: newActors });

@@ -1,5 +1,6 @@
 import React from "react";
 
+// Basic Modal for buttons
 const Modal = ({ children, showModal, setShowModal }) => {
   return (
     <>
