@@ -5,6 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
+// Adds a movie to the database
 const AddMovie = () => {
     const Router = useRouter();
   const [showModal, setShowModal] = useState(false);
@@ -21,6 +22,7 @@ const handleActorInputChange = (e) => {
     setActorInput(e.target.value);
 };
 
+// Adds an actor to the movie in the database
 const addActor = () => {
     if (actorInput.trim()) {
         setInput(prevState => ({
